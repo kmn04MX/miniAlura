@@ -1,0 +1,172 @@
+/* .headerPrincipal-titulo{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.headerPrincipal-nav{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 630px; Lo que se trata de hacer es alinear la navegación del lado izquierdo, pero al hacerlo responsivo esto no funciona, además de que se debe estar adivinando un número esto no es muy práctico, para esto se utiliza flexbox.
+} */
+
+
+
+
+/* Cuando se trabaja con  flexbox, los items que están dentro de un container, se comporten de cierta manera, que los items, hereden las propiedades de su padre, por lo tanto se procede a aplicar las siguentes propiedades al header principal*/
+
+.headerPrincipal .container{
+    display: flex;/* la propiedad flex sirve para alterar las dimensiones de los contenedores o items y además llena su espacio disponible dentro de los elementos, es como si se aplicara un display: inline-block, basicamente lo que hace al aplicar esta propiedad es que los hijos del padre los pone junto con otro */
+    align-items: center; /* Sirve para alinear los elementos al centro de la caja. Los elementos solo se alinean verticalmente. Se recomienda aplicar esta propiedad al padre los items*/
+    justify-content: space-between;/* lA propiedad justify-content sirve para dar un espaciado entre elementos, la cual puede tomar cualquier propiedad, por ejemplo space-between significa que los elementos repartirán el espacio sobrante de su contenedor de manera equitativa entre ellos
+    
+    Exten 4 valores que puede tomar justify-content, las cuales son:
+
+    flex-end --> Se pone todo el contenido a la derecha
+    flex-start  --> se pone todo el contenido al inicio
+    center --> se pone todo el contenido al centro
+    space-between --> el contenido toma todo el espacio del contenedor sin tomar en cuenta el espacio de los latereles de las cajas
+    space-around --> el contenido toma todo el espacio del contenedor y sus alrededores
+    */
+}
+
+
+
+.headerPrincipal-nav{
+    display: flex;
+}
+
+.rodapePrincipal-patrocinadores .container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.rodapePrincipal-patrocinadores-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 70%;
+    margin-right: 5%;
+}
+
+.rodapePrincipal-contatoForm{
+    width: 25%;
+}
+
+.rodapePrincipal-contatoForm-fieldset{
+    display: flex;
+}
+
+.rodapePrincipal-navMap-list{
+    display: flex;
+    flex-direction: column; /* Sirve para darle alguna dirección a los items del contenedor, ya sea que pueden ser por columan, row, columm-reverse, row-reverse aquí hay que tener en cuenta una cosa
+    
+    cuando se trabaja en filas y se le asignan ciertas propiedades a los lados commo un margin-right y un margi-left. esas propiedades se siguen conservando cuando se trabaja en columnas, por lo que se debe modificar los margin-right y margin-left para que se adapten a la forma del flex-direction
+    */
+    height: 250px;
+    flex-wrap: wrap; /* Esta propiedad sirve para quebar el contenido de los items que estan en un contendor, si los items exceden el tamaño del contenedor, esta propiedad indica que se rompa para que no haya un desbordamiento y la información la acomode en otra columna alado */
+
+}
+
+
+.contenidoPrincipal-cursos{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.contenidoPrincipal-cursos-link{
+    display: flex;
+    width: 23%;
+}
+
+
+
+.videoSobre .container{
+    display: flex;
+}
+
+.videoSobre-sobre{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.videoSobre-video{
+    flex-grow: 2;/* flex-grow es una propiedad de CSS que se utiliza en el contexto de los diseños flexbox. Esta propiedad se utiliza para especificar la tasa de crecimiento relativa que un elemento hijo dentro de un contenedor flexbox debe tener en relación a los demás elementos hijos.
+
+    El valor de flex-grow es un número entero que indica la tasa de crecimiento relativa. Por ejemplo, si un elemento hijo tiene un flex-grow de 2 y otro elemento tiene un flex-grow de 1, el primer elemento crecerá a un ritmo dos veces más rápido que el segundo elemento. */
+    
+    flex-shrink: 2;/* Quiere decir que el contenedor se va reducir dos veces su tamaño en comparación a un contenedor que no se le ha aplicado esta propiedad */
+
+    /* Si nungun elemento se desea ampliar o reducir, simplemente se coloca en 0 la  propiedad flex-grow o flex-shrink
+    
+    
+    se puede aplicar los flex-grow y flex-shrink y flex-bassis de la siguiente mandera
+    flex: flex-grow flex-shrink flex-basis; ----> flex: 1 1 200px
+    */
+}
+
+.videoSobre-sobre-list{
+    flex-grow: 1;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 768px) {
+    
+.headerPrincipal .container{
+    flex-direction: column;
+    align-items: initial;
+    text-align: center;
+
+}
+
+.headerPrincipal-nav{
+    flex-direction: column;
+    
+    
+}
+
+.contenidoPrincipal-cursos{
+    flex-direction: column;
+}
+
+.contenidoPrincipal-cursos-link{
+    width: 100%;
+}
+
+.rodapePrincipal-navMap-list{
+    height: auto;/*El navegador ajutsta el tamaño espeícifo, en este caso por columnas */
+    flex-wrap: nowrap;
+}
+
+.rodapePrincipal-patrocinadores .container{
+    flex-direction: column;
+}
+
+.rodapePrincipal-contatoForm{
+    width: 100%;
+}
+
+.rodapePrincipal-patrocinadores-list{
+    align-items: center;
+    width: 100%;
+    margin: 0;
+}
+
+
+.rodapePrincipal-contatoForm-fieldset{
+    justify-content: center;
+}
+
+
+.headerPrincipal-nav-link-app{
+    order: -1;/* _ todos los items que tengan la propiedad flex, de entrada tienen un orden 0, por lo que con la propiedad order, se puede cambiar el orden de los items segun sea el caso */
+}
+
+.videoSobre .container{
+    flex-direction: column;
+}
+
+}
